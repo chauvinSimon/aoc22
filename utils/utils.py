@@ -1,0 +1,7 @@
+from pathlib import Path
+
+
+def read_file(p: Path):
+    with p.open() as f:
+        data = f.readlines()
+    return data

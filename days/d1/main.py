@@ -16,5 +16,6 @@ def main():
 
     print(f'max_sum = {max_sum}')
 
+
 if __name__ == '__main__':
     main()

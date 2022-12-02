@@ -1,9 +1,9 @@
 import pytest
 
-from days.d1.d1 import find_max
+from days.d1.d1 import find_top_3
 
 
-@pytest.mark.parametrize("calories, max_expected", [
+@pytest.mark.parametrize("calories, top_3_expected", [
     ([
          '1000\n',
          '2000\n',
@@ -19,11 +19,11 @@ from days.d1.d1 import find_max
          '9000\n',
          '\n',
          '10000\n',
-     ], 24000),
+     ], [10000, 11000, 24000]),
 ])
-def test_scores(calories, max_expected):
-    _max = find_max(calories=calories)
-    assert max_expected == _max
+def test_scores(calories, top_3_expected):
+    top_3 = find_top_3(calories=calories)
+    assert top_3_expected == top_3
 
 
 if __name__ == "__main__":

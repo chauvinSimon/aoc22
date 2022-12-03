@@ -1,0 +1,41 @@
+# `pre-commit`
+#   `pre-commit` is a python package from `pre-commit.com` that installs a `git pre-commit` script.
+
+# run manually
+#   `pre-commit run --all-files`
+
+# to install the `git pre-commit` hook run:
+#   pre-commit install
+# to update the `pre-commit` hooks run:
+#   pre-commit install-hooks
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+        exclude: '.*\.pth$'
+      - id: debug-statements
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
+    hooks:
+      - id: flake8
+        args: # arguments to configure flake8
+          # making isort line length compatible with black
+          - "--max-line-length=103"
+          - "--max-complexity=18"
+          - "--select=B,C,E,F,W,T4,B9"
+          - "--ignore=E121,E126"
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.32.1
+    hooks:
+      - id: pyupgrade
+        args: [ --py36-plus ]

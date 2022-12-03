@@ -5,7 +5,8 @@ from utils.utils import read_file
 
 
 def priority(char: str) -> int:
-    uppers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+    uppers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+              'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
               'V', 'W', 'X', 'Y', 'Z']
     lowers = [c.lower() for c in uppers]
     all_priorities = [''] + lowers + uppers
@@ -22,10 +23,14 @@ def find_groups(rucksack: str) -> Sequence[str]:
 
 
 def find_duplicate(rucksack_group: Sequence[str]) -> str:
+    # todo
+    #  groups = [map(set, group) for group in groups]
+    #  groups = [set.intersection(*group).pop() for group in groups]
     if len(rucksack_group) == 2:
         intersection = set(rucksack_group[0]).intersection(set(rucksack_group[1]))
     elif len(rucksack_group) == 3:
-        intersection = set(rucksack_group[0]).intersection(set(rucksack_group[1])).intersection(set(rucksack_group[2]))
+        intersection = set(rucksack_group[0]).intersection(
+            set(rucksack_group[1])).intersection(set(rucksack_group[2]))
     else:
         raise ValueError(f'cannot deal with group of len {len(rucksack_group)}')
 

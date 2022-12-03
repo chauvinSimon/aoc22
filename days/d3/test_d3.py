@@ -1,7 +1,6 @@
 import pytest
 
-from days.d2.d2 import points_per_tuple, points_per_letter, points_per_goal
-from days.d3.d3 import find_duplicate, priority, find_groups
+from days.d3.d3 import find_duplicate, find_groups, priority
 
 
 @pytest.mark.parametrize("rucksack, elem_expected, prio_expected", [

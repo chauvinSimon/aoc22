@@ -1,6 +1,6 @@
 import pytest
 
-from days.d2.d2 import points_per_tuple, points_per_letter, points_per_goal
+from days.d2.d2 import points_per_goal, points_per_letter, points_per_tuple
 
 
 @pytest.mark.parametrize("_tuple, score_1_expected, score_2_expected", [

@@ -39,3 +39,14 @@ repos:
     hooks:
       - id: pyupgrade
         args: [ --py36-plus ]
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        stages: [ commit ]
+        language: system
+        # ModuleNotFoundError without PYTHONPATH=.
+        entry: env PYTHONPATH=. pytest -s -v .
+        types: [ python ]
+        pass_filenames: false
+        always_run: true

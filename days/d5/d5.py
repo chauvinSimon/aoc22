@@ -1,5 +1,4 @@
 import re
-from collections import defaultdict
 from pathlib import Path
 
 from utils.utils import read_file
@@ -44,7 +43,7 @@ def decode_state(state_str):
 
 
 def answer(state) -> str:
-    return ''.join((s[0] for s in state))
+    return ''.join(s[0] for s in state)
 
 
 def main():

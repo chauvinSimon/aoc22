@@ -35,12 +35,12 @@ def test_state_decoding(state_str, state_expected):
          ['C'],
          ['M'],
          ['Z', 'N', 'D', 'P'],
-     ]
-    ),
+     ]),
 ])
 def test_moves(state, moves, end_state_expected):
     end_state = move(state, moves)
     assert end_state_expected == end_state
+
 
 @pytest.mark.parametrize("state, moves, end_state_expected", [
     ([
@@ -56,8 +56,7 @@ def test_moves(state, moves, end_state_expected):
          ['M'],
          ['C'],
          ['D', 'N', 'Z', 'P'],
-     ]
-    ),
+     ]),
 ])
 def test_moves_block(state, moves, end_state_expected):
     end_state = move(state, moves, use_block=True)

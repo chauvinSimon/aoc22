@@ -79,12 +79,6 @@ def find_dir_sizes(tree):
 
 
 def answer(dir_and_sizes) -> int:
-    my_sum = 0
-    for k, v in dir_and_sizes.items():
-        if v < 100000:
-            # print(f'{k}: {v}')
-
-            my_sum += v
     return sum(s for s in dir_and_sizes.values() if s <= 100000)
 
 

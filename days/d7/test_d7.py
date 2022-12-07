@@ -76,16 +76,16 @@ def test_find_tree(terminal, tree_expected):
              },
          }
      },
-     {
-         'a': 94853,
-         'e': 584,
-         'd': 24933642,
-         '/': 48381165
-     })
+     [
+         94853,  # 'a'
+         584,  # 'e'
+         24933642,  # 'd'
+         48381165  # '/'
+     ])
 ])
 def test_find_dir_lighter(tree, dir_and_size_expected):
     dir_and_size = find_dir_sizes(tree)
-    assert dir_and_size_expected == dir_and_size
+    assert sorted(dir_and_size_expected) == sorted(dir_and_size)
 
 
 if __name__ == "__main__":

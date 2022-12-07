@@ -63,30 +63,31 @@ def find_dir_size(_d) -> int:
 
 
 def find_dir_sizes(tree):
-    sizes = {}
+    all_sizes = []
 
     def examine_tree(_tree):
         for k, v in _tree.items():
             if isinstance(v, dict):
                 dir_size = find_dir_size(v)
                 # print(f'dir_size of [{k}] = {dir_size}')
-                sizes[k] = dir_size
+                all_sizes.append(dir_size)
                 examine_tree(v)
 
     examine_tree(tree)
     # print(sizes)
-    return sizes
+    return all_sizes
 
 
 def answer(dir_and_sizes) -> int:
-    return sum(s for s in dir_and_sizes.values() if s <= 100000)
+    return sum(s for s in dir_and_sizes if s <= 100000)
 
 
 def main():
     terminal = read_file(Path('days/d7/in.txt'))
     tree = find_tree(terminal=terminal)
-    dir_sizes = find_dir_sizes(tree)
-    print(f'answer: {answer(dir_sizes)}')
+    all_dir_sizes = find_dir_sizes(tree)
+    # print(all_dir_sizes)
+    print(f'answer: {answer(all_dir_sizes)}')
 
 
 if __name__ == '__main__':

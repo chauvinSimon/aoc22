@@ -87,7 +87,10 @@ def main():
     tree = find_tree(terminal=terminal)
     all_dir_sizes = find_dir_sizes(tree)
     # print(all_dir_sizes)
-    print(f'answer: {answer(all_dir_sizes)}')
+    print(f'answer 1: {answer(all_dir_sizes)}')
+
+    size_to_free = max(all_dir_sizes) - 40_000_000
+    print(f'answer 1: {min(s for s in all_dir_sizes if s > size_to_free)}')
 
 
 if __name__ == '__main__':
